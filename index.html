@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demi fond EPS</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1A1A2E">
+    <meta name="description" content="Application d'évaluation en demi-fond pour l'EPS">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Demi fond EPS">
+    
+    <!-- Icônes pour différentes plateformes avec emojis -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='50' font-size='60' text-anchor='middle' dominant-baseline='central'%3E🏃🏽‍♀️%3C/text%3E%3C/svg%3E">
+    
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='bgGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FF6B35;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23F7B801;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='40' fill='url(%23bgGrad)'/%3E%3Ctext x='50' y='90' font-size='70' text-anchor='middle' dominant-baseline='central'%3E🏃🏽‍♀️%3C/text%3E%3Ctext x='130' y='90' font-size='70' text-anchor='middle' dominant-baseline='central'%3E🏃🏻‍♂️%3C/text%3E%3Ctext x='90' y='160' font-family='Arial, sans-serif' font-size='24' font-weight='bold' fill='white' text-anchor='middle'%3EEPS%3C/text%3E%3C/svg%3E">
+    
+    <!-- Manifest pour Android -->
+    <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22Demi%20fond%20EPS%22%2C%22short_name%22%3A%22Demi%20fond%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%231A1A2E%22%2C%22theme_color%22%3A%22%231A1A2E%22%2C%22description%22%3A%22Application%20d'%C3%A9valuation%20en%20demi-fond%20pour%20l'EPS%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%2520xmlns%253D%2527http%253A%252F%252Fwww.w3.org%252F2000%252Fsvg%2527%2520viewBox%253D%25270%25200%2520512%2520512%2527%253E%253Cdefs%253E%253ClinearGradient%2520id%253D%2527bgGrad2%2527%2520x1%253D%25270%252525%2527%2520y1%253D%25270%252525%2527%2520x2%253D%2527100%252525%2527%2520y2%253D%2527100%252525%2527%253E%253Cstop%2520offset%253D%25270%252525%2527%2520style%253D%2527stop-color%253A%2523FF6B35%253Bstop-opacity%253A1%2527%2520%252F%253E%253Cstop%2520offset%253D%2527100%252525%2527%2520style%253D%2527stop-color%253A%2523F7B801%253Bstop-opacity%253A1%2527%2520%252F%253E%253C%252FlinearGradient%253E%253C%252Fdefs%253E%253Crect%2520width%253D%2527512%2527%2520height%253D%2527512%2527%2520rx%253D%2527115%2527%2520fill%253D%2527url(%2523bgGrad2)%2527%252F%253E%253Ctext%2520x%253D%2527150%2527%2520y%253D%2527256%2527%2520font-size%253D%2527200%2527%2520text-anchor%253D%2527middle%2527%2520dominant-baseline%253D%2527central%2527%253E🏃🏽‍♀️%253C%252Ftext%253E%253Ctext%2520x%253D%2527362%2527%2520y%253D%2527256%2527%2520font-size%253D%2527200%2527%2520text-anchor%253D%2527middle%2527%2520dominant-baseline%253D%2527central%2527%253E🏃🏻‍♂️%253C%252Ftext%253E%253Ctext%2520x%253D%2527256%2527%2520y%253D%2527460%2527%2520font-family%253D%2527Arial%252C%2520sans-serif%2527%2520font-size%253D%252770%2527%2520font-weight%253D%2527bold%2527%2520fill%253D%2527white%2527%2520text-anchor%253D%2527middle%2527%253EEPS%253C%252Ftext%253E%253C%252Fsvg%253E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #F7B801;
+            --success: #2EC4B6;
+            --warning: #FF9F1C;
+            --danger: #E71D36;
+            --bg-dark: #1A1A2E;
+            --bg-light: #F5F5F5;
+            --text-dark: #0F0F0F;
+            --text-light: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Cabin', sans-serif;
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 100px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5rem;
+            letter-spacing: 3px;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.4)); }
+            to { filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.8)); }
+        }
+
+        .screen {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Bebas Neue', cursive;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #ff8c5a);
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary), #006ba6);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 78, 137, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #3dd9ca);
+            color: white;
+        }
+
+        .badge-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .badge-btn {
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.05));
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            color: var(--text-light);
+        }
+
+        .badge-btn:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.4), rgba(255, 107, 53, 0.1));
+        }
+
+        .badge-btn.selected {
+            background: linear-gradient(135deg, var(--primary), #ff8c5a);
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+        }
+
+        .allure-btn {
+            padding: 30px 20px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, rgba(46, 196, 182, 0.2), rgba(46, 196, 182, 0.05));
+            border: 2px solid rgba(46, 196, 182, 0.3);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .allure-btn.verte {
+            border-color: var(--success);
+            background: linear-gradient(135deg, rgba(46, 196, 182, 0.2), rgba(46, 196, 182, 0.05));
+        }
+
+        .allure-btn.jaune {
+            border-color: var(--accent);
+            background: linear-gradient(135deg, rgba(247, 184, 1, 0.2), rgba(247, 184, 1, 0.05));
+        }
+
+        .allure-btn.orange {
+            border-color: var(--warning);
+            background: linear-gradient(135deg, rgba(255, 159, 28, 0.2), rgba(255, 159, 28, 0.05));
+        }
+
+        .allure-btn:hover {
+            transform: scale(1.02);
+        }
+
+        .allure-btn.selected {
+            box-shadow: 0 0 30px currentColor;
+            font-size: 1.2rem;
+        }
+
+        .allure-btn.verte.selected {
+            background: linear-gradient(135deg, var(--success), #3dd9ca);
+        }
+
+        .allure-btn.jaune.selected {
+            background: linear-gradient(135deg, var(--accent), #ffc933);
+        }
+
+        .allure-btn.orange.selected {
+            background: linear-gradient(135deg, var(--warning), #ffb84d);
+        }
+
+        .pause-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .pause-bar {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .pause-bar:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .pause-bar.pause {
+            background: linear-gradient(135deg, var(--warning), #ffb84d);
+            border-color: var(--warning);
+            color: var(--text-dark);
+        }
+
+        .chrono-display {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--danger), #ff4757);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            box-shadow: 0 8px 32px rgba(231, 29, 54, 0.4);
+            z-index: 1000;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .home-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--danger), #ff4757);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 4px 15px rgba(231, 29, 54, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .home-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(231, 29, 54, 0.6);
+        }
+
+        .observation-panel {
+            margin-top: 120px;
+            padding-bottom: 80px;
+        }
+
+        .segment-info {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 78, 137, 0.3), rgba(0, 78, 137, 0.1));
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 2px solid var(--secondary);
+        }
+
+        .segment-info h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .counter-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .counter-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .counter-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .counter-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), #ff8c5a);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .counter-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
+        }
+
+        .counter-value {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            min-width: 80px;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .pause-warning {
+            text-align: center;
+            background: linear-gradient(135deg, var(--warning), #ffb84d);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            animation: pulse 1.5s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(255, 159, 28, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .graph-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        canvas {
+            max-width: 100%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(255, 107, 53, 0.05));
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255, 107, 53, 0.3);
+        }
+
+        .stat-value {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .message-box {
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 25px 0;
+        }
+
+        .message-box.success {
+            background: linear-gradient(135deg, var(--success), #3dd9ca);
+            color: white;
+        }
+
+        .message-box.warning {
+            background: linear-gradient(135deg, var(--warning), #ffb84d);
+            color: var(--text-dark);
+        }
+
+        .header-info {
+            position: fixed;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            z-index: 999;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .chrono-display {
+                font-size: 1.5rem;
+                padding: 12px 30px;
+            }
+
+            .counter-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .counter-value {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Écran d'accueil -->
+        <div id="screen-home" class="screen active">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 30px;">
+                <span style="font-size: 4rem; animation: bounce 2s infinite;">🏃🏽‍♀️</span>
+                <h1 style="margin: 0;">Demi fond EPS</h1>
+                <span style="font-size: 4rem; animation: bounce 2s infinite 0.3s;">🏃🏻‍♂️</span>
+            </div>
+            <div class="card">
+                <div class="input-group">
+                    <label>Nom du coureur</label>
+                    <input type="text" id="coureur" placeholder="Entrez le nom du coureur">
+                </div>
+                <div class="input-group">
+                    <label>VMA (km/h)</label>
+                    <input type="number" id="vma" placeholder="Entrez la VMA" step="0.5" min="6" max="20">
+                </div>
+                <div class="input-group">
+                    <label>Nom de l'observateur</label>
+                    <input type="text" id="observateur" placeholder="Entrez le nom de l'observateur">
+                </div>
+                <button class="btn-primary" onclick="validateHome()"><span>Suivant</span></button>
+            </div>
+        </div>
+
+        <!-- Sélection du badge -->
+        <div id="screen-badge" class="screen">
+            <button class="home-button" onclick="confirmReturnHome()">🏠 Accueil</button>
+            <h1>Demi fond EPS</h1>
+            <div class="card">
+                <h2 style="text-align: center; margin-bottom: 25px; font-family: 'Bebas Neue', cursive; font-size: 2rem; color: var(--accent);">Sélection du Badge</h2>
+                <div class="badge-selector">
+                    <button class="badge-btn" onclick="selectBadge(6)"><span>6 min</span></button>
+                    <button class="badge-btn" onclick="selectBadge(9)"><span>9 min</span></button>
+                    <button class="badge-btn" onclick="selectBadge(12)"><span>12 min</span></button>
+                </div>
+                <button class="btn-primary" onclick="validateBadge()"><span>Suivant</span></button>
+                <button class="btn-secondary" onclick="goBack('screen-home')"><span>Précédent</span></button>
+            </div>
+        </div>
+
+        <!-- Sélection de l'allure -->
+        <div id="screen-allure" class="screen">
+            <button class="home-button" onclick="confirmReturnHome()">🏠 Accueil</button>
+            <h1>Demi fond EPS</h1>
+            <div class="card">
+                <h2 style="text-align: center; margin-bottom: 25px; font-family: 'Bebas Neue', cursive; font-size: 2rem; color: var(--accent);">Sélection de l'Allure</h2>
+                <button class="allure-btn verte" onclick="selectAllure('verte', -3)">
+                    <span>🟢 Allure Verte<br>VMA - 3</span>
+                </button>
+                <button class="allure-btn jaune" onclick="selectAllure('jaune', -2)">
+                    <span>🟡 Allure Jaune<br>VMA - 2 (1 pause)</span>
+                </button>
+                <button class="allure-btn orange" id="allure-orange" onclick="selectAllure('orange', -1)">
+                    <span>🟠 Allure Orange<br>VMA - 1 (2 pauses)</span>
+                </button>
+                <button class="btn-primary" onclick="validateAllure()"><span>Suivant</span></button>
+                <button class="btn-secondary" onclick="goBack('screen-badge')"><span>Précédent</span></button>
+            </div>
+        </div>
+
+        <!-- Sélection des pauses -->
+        <div id="screen-pause" class="screen">
+            <button class="home-button" onclick="confirmReturnHome()">🏠 Accueil</button>
+            <h1>Demi fond EPS</h1>
+            <div class="card">
+                <h2 style="text-align: center; margin-bottom: 25px; font-family: 'Bebas Neue', cursive; font-size: 2rem; color: var(--accent);">Sélection des Pauses</h2>
+                <p style="text-align: center; margin-bottom: 20px; font-size: 1.1rem;">Cliquez sur les tronçons où vous souhaitez placer vos pauses</p>
+                <div class="pause-selector" id="pause-selector"></div>
+                <button class="btn-primary" onclick="validatePauses()"><span>Suivant</span></button>
+                <button class="btn-secondary" onclick="goBack('screen-allure')"><span>Précédent</span></button>
+            </div>
+        </div>
+
+        <!-- Observation course longue -->
+        <div id="screen-observation" class="screen">
+            <button class="home-button" onclick="confirmReturnHome()">🏠 Accueil</button>
+            <div id="chrono-display" class="chrono-display" style="display: none;">00:00</div>
+            <div id="header-info" class="header-info" style="display: none;"></div>
+            
+            <div class="observation-panel">
+                <div class="segment-info">
+                    <h2 id="segment-title">Tronçon 1/4</h2>
+                    <p style="font-size: 1.2rem; margin-top: 10px; line-height: 1.6;" id="plots-cible"></p>
+                </div>
+
+                <div id="pause-section" class="pause-warning" style="display: none;">
+                    ⏸️ PAUSE MARCHE
+                </div>
+
+                <div id="counter-section">
+                    <div class="counter-section">
+                        <div class="counter-title">GROS PLOTS franchis</div>
+                        <div class="counter-controls">
+                            <button class="counter-btn" onclick="modifyCounter('plots', -1)">-</button>
+                            <div class="counter-value" id="plots-count">0</div>
+                            <button class="counter-btn" onclick="modifyCounter('plots', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="counter-section">
+                        <div class="counter-title">Pénalités</div>
+                        <div class="counter-controls">
+                            <button class="counter-btn" onclick="modifyCounter('penalties', -1)">-</button>
+                            <div class="counter-value" id="penalties-count">0</div>
+                            <button class="counter-btn" onclick="modifyCounter('penalties', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="startChrono()" id="start-btn" style="margin-top: 20px;"><span>Démarrer le chronomètre</span></button>
+            </div>
+        </div>
+
+        <!-- Bilan intermédiaire -->
+        <div id="screen-bilan" class="screen">
+            <button class="home-button" onclick="confirmReturnHome()">🏠 Accueil</button>
+            <h1>Bilan Intermédiaire</h1>
+            <div class="card">
+                <div class="graph-container">
+                    <canvas id="graph-longue"></canvas>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="sorties-route">0</div>
+                        <div class="stat-label">Sorties de route</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="bilan-penalties">0</div>
+                        <div class="stat-label">Pénalités</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="score-provisoire">0</div>
+                        <div class="stat-label">Score provisoire</div>
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="goToIntermittent()"><span>Suivant</span></button>
+            </div>
+        </div>
+
+        <!-- Objectif course intermittente -->
+        <div id="screen-objectif" class="screen">
+            <button class="home-button" onclick="confirmReturnHome()">🏠 Accueil</button>
+            <h1>Course Intermittente 30"/30"</h1>
+            <div class="card">
+                <h2 style="text-align: center; margin-bottom: 25px; font-family: 'Bebas Neue', cursive; font-size: 2rem; color: var(--accent);">Objectif</h2>
+                
+                <div class="stat-card" style="margin-bottom: 25px;">
+                    <div class="stat-value" id="petits-plots-cible">12</div>
+                    <div class="stat-label">Petits plots cibles par 30"</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value" id="rattrapages-needed">0</div>
+                    <div class="stat-label">Rattrapages à faire pour 0 points</div>
+                </div>
+
+                <p style="text-align: center; margin: 25px 0; font-size: 1.1rem; line-height: 1.6;">
+                    Vous devez réaliser <strong>4 courses de 30"</strong> obligatoires.<br>
+                    Chaque rattrapage réussi enlève 1 point à votre score final.
+                </p>
+
+                <button class="btn-primary" onclick="startIntermittent()"><span>Commencer</span></button>
+                <button class="btn-secondary" onclick="goBack('screen-bilan')"><span>Précédent</span></button>
+            </div>
+        </div>
+
+        <!-- Observation intermittente -->
+        <div id="screen-intermittent" class="screen">
+            <button class="home-button" onclick="confirmReturnHome()">🏠 Accueil</button>
+            <div id="chrono-intermittent" class="chrono-display" style="display: none;">00:00</div>
+            <div id="header-info-inter" class="header-info" style="display: none;"></div>
+            
+            <div class="observation-panel">
+                <div class="segment-info">
+                    <h2 id="intermittent-title">Obligatoire 1/4</h2>
+                    <p style="font-size: 1.2rem; margin-top: 10px; line-height: 1.6;" id="petits-plots-cible-display"></p>
+                </div>
+
+                <div id="pause-inter-section" class="pause-warning" style="display: none;">
+                    🚶 PAUSE MARCHE
+                </div>
+
+                <div id="counter-inter-section">
+                    <div class="counter-section">
+                        <div class="counter-title">Petits plots franchis</div>
+                        <div class="counter-controls">
+                            <button class="counter-btn" onclick="modifyCounterInter('petitsPlots', -1)">-</button>
+                            <div class="counter-value" id="petits-plots-count">0</div>
+                            <button class="counter-btn" onclick="modifyCounterInter('petitsPlots', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="counter-section" id="penalties-inter-section">
+                        <div class="counter-title">Pénalités</div>
+                        <div class="counter-controls">
+                            <button class="counter-btn" onclick="modifyCounterInter('penalties', -1)">-</button>
+                            <div class="counter-value" id="penalties-inter-count">0</div>
+                            <button class="counter-btn" onclick="modifyCounterInter('penalties', 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="startChronoIntermittent()" id="start-inter-btn" style="margin-top: 20px;"><span>Démarrer le chronomètre</span></button>
+                <button class="btn-success" onclick="finishIntermittent()" id="finish-inter-btn" style="margin-top: 20px; display: none;"><span>Course terminée</span></button>
+            </div>
+        </div>
+
+        <!-- Résultats finaux -->
+        <div id="screen-results" class="screen">
+            <h1>Résultats</h1>
+            <div class="card">
+                <div style="text-align: center; margin-bottom: 30px; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 15px;">
+                    <h3 style="font-family: 'Bebas Neue', cursive; font-size: 1.8rem; color: var(--accent); margin-bottom: 10px;">Informations du coureur</h3>
+                    <p style="font-size: 1.2rem;"><strong>Coureur:</strong> <span id="result-coureur"></span></p>
+                    <p style="font-size: 1.2rem;"><strong>VMA:</strong> <span id="result-vma"></span> km/h</p>
+                    <p style="font-size: 1.2rem;"><strong>Observateur:</strong> <span id="result-observateur"></span></p>
+                    <p style="font-size: 1.2rem;"><strong>Badge tenté:</strong> <span id="result-badge"></span></p>
+                </div>
+
+                <div class="graph-container">
+                    <h3 style="text-align: center; color: var(--text-dark); margin-bottom: 20px; font-family: 'Bebas Neue', cursive; font-size: 1.5rem;">Course Longue</h3>
+                    <canvas id="graph-final-longue"></canvas>
+                </div>
+
+                <div class="graph-container" style="margin-top: 20px;">
+                    <h3 style="text-align: center; color: var(--text-dark); margin-bottom: 20px; font-family: 'Bebas Neue', cursive; font-size: 1.5rem;">Course Intermittente</h3>
+                    <canvas id="graph-final-inter"></canvas>
+                </div>
+
+                <div class="stats-grid" style="margin-top: 30px;">
+                    <div class="stat-card">
+                        <div class="stat-value" id="distance-totale">0</div>
+                        <div class="stat-label">Distance totale (m)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="score-final">0</div>
+                        <div class="stat-label">Score final</div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="vitesse-longue">0</div>
+                        <div class="stat-label">Vitesse moyenne course longue (km/h)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="vitesse-inter">0</div>
+                        <div class="stat-label">Vitesse moyenne course intermittente (km/h)</div>
+                    </div>
+                </div>
+
+                <div id="detail-calcul" style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px; margin: 20px 0; font-size: 1.1rem;"></div>
+
+                <div id="messages-container"></div>
+
+                <div class="btn-group" style="margin-top: 30px;">
+                    <button class="btn-primary" onclick="exportPDF()"><span>📄 Export PDF</span></button>
+                    <button class="btn-primary" onclick="exportXLS()"><span>📊 Export Excel</span></button>
+                </div>
+
+                <button class="btn-secondary" onclick="confirmReturnHome()" style="margin-top: 15px;"><span>Retour à l'accueil</span></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <script>
+        // Variables globales
+        let appData = {
+            coureur: '',
+            vma: 0,
+            observateur: '',
+            badge: 0,
+            allure: '',
+            allureValue: 0,
+            pauses: [],
+            plotsCible: 0,
+            
+            // Course longue
+            segments: [],
+            currentSegment: 0,
+            chronoStartTime: 0,
+            chronoInterval: null,
+            segmentInterval: null,
+            
+            // Course intermittente
+            petitsPlotsCible: 0,
+            intermittentData: [],
+            currentIntermittent: 0,
+            isIntermittentRunning: false,
+            intermittentStartTime: 0,
+            intermittentInterval: null,
+            intermittentSegmentInterval: null,
+            scoreProvisoire: 0
+        };
+
+        // Navigation
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        function goBack(screenId) {
+            // Réinitialiser les données de la page actuelle selon l'écran
+            const currentScreen = document.querySelector('.screen.active').id;
+            
+            if (currentScreen === 'screen-badge') {
+                // Réinitialiser la sélection du badge
+                appData.badge = 0;
+                document.querySelectorAll('.badge-btn').forEach(b => b.classList.remove('selected'));
+            } else if (currentScreen === 'screen-allure') {
+                // Réinitialiser la sélection de l'allure
+                appData.allure = '';
+                appData.allureValue = 0;
+                document.querySelectorAll('.allure-btn').forEach(b => b.classList.remove('selected'));
+            } else if (currentScreen === 'screen-pause') {
+                // Réinitialiser les pauses
+                appData.pauses = [];
+            }
+            
+            showScreen(screenId);
+        }
+
+        function confirmReturnHome() {
+            if (confirm('Êtes-vous sûr de vouloir retourner à l\'accueil ? Toutes les données seront effacées.')) {
+                resetApp();
+                showScreen('screen-home');
+            }
+        }
+
+        function resetApp() {
+            appData = {
+                coureur: '', vma: 0, observateur: '', badge: 0, allure: '', allureValue: 0,
+                pauses: [], plotsCible: 0, segments: [], currentSegment: 0,
+                chronoStartTime: 0, chronoInterval: null, segmentInterval: null,
+                petitsPlotsCible: 0, intermittentData: [], currentIntermittent: 0,
+                isIntermittentRunning: false, intermittentStartTime: 0,
+                intermittentInterval: null, intermittentSegmentInterval: null, scoreProvisoire: 0
+            };
+            
+            // Reset des inputs
+            document.getElementById('coureur').value = '';
+            document.getElementById('vma').value = '';
+            document.getElementById('observateur').value = '';
+            
+            // Reset des sélections
+            document.querySelectorAll('.badge-btn').forEach(b => b.classList.remove('selected'));
+            document.querySelectorAll('.allure-btn').forEach(b => b.classList.remove('selected'));
+            
+            // Arrêt des chronos
+            if (appData.chronoInterval) clearInterval(appData.chronoInterval);
+            if (appData.segmentInterval) clearInterval(appData.segmentInterval);
+            if (appData.intermittentInterval) clearInterval(appData.intermittentInterval);
+            if (appData.intermittentSegmentInterval) clearInterval(appData.intermittentSegmentInterval);
+        }
+
+        // Écran d'accueil
+        function validateHome() {
+            const coureur = document.getElementById('coureur').value.trim();
+            const vma = parseFloat(document.getElementById('vma').value);
+            const observateur = document.getElementById('observateur').value.trim();
+
+            if (!coureur || !vma || !observateur) {
+                alert('Veuillez remplir tous les champs');
+                return;
+            }
+
+            if (vma < 6 || vma > 20) {
+                alert('La VMA doit être comprise entre 6 et 20 km/h');
+                return;
+            }
+
+            appData.coureur = coureur;
+            appData.vma = vma;
+            appData.observateur = observateur;
+
+            showScreen('screen-badge');
+        }
+
+        // Sélection du badge
+        function selectBadge(minutes) {
+            appData.badge = minutes;
+            document.querySelectorAll('.badge-btn').forEach(b => b.classList.remove('selected'));
+            event.target.closest('.badge-btn').classList.add('selected');
+        }
+
+        function validateBadge() {
+            if (!appData.badge) {
+                alert('Veuillez sélectionner un badge');
+                return;
+            }
+
+            // Masquer l'allure orange si badge 6 min
+            if (appData.badge === 6) {
+                document.getElementById('allure-orange').style.display = 'none';
+            } else {
+                document.getElementById('allure-orange').style.display = 'block';
+            }
+
+            showScreen('screen-allure');
+        }
+
+        // Sélection de l'allure
+        function selectAllure(type, value) {
+            appData.allure = type;
+            appData.allureValue = value;
+            document.querySelectorAll('.allure-btn').forEach(b => b.classList.remove('selected'));
+            event.target.closest('.allure-btn').classList.add('selected');
+        }
+
+        function validateAllure() {
+            if (!appData.allure) {
+                alert('Veuillez sélectionner une allure');
+                return;
+            }
+
+            if (appData.allure === 'verte') {
+                // Pas de pause, on passe directement à l'observation
+                appData.pauses = [];
+                initObservation();
+                showScreen('screen-observation');
+            } else {
+                // Afficher la sélection des pauses
+                showPauseSelection();
+                showScreen('screen-pause');
+            }
+        }
+
+        // Sélection des pauses
+        function showPauseSelection() {
+            const numSegments = appData.badge / 1.5; // Nombre de tronçons
+            const numPauses = appData.allure === 'jaune' ? 1 : 2;
+            
+            const container = document.getElementById('pause-selector');
+            container.innerHTML = '';
+            
+            for (let i = 1; i <= numSegments; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'pause-bar';
+                
+                // Calculer les timings
+                const startSeconds = (i - 1) * 90;
+                const endSeconds = i * 90;
+                const startMin = Math.floor(startSeconds / 60);
+                const startSec = startSeconds % 60;
+                const endMin = Math.floor(endSeconds / 60);
+                const endSec = endSeconds % 60;
+                
+                const timing = `${startMin}:${startSec.toString().padStart(2, '0')} à ${endMin}:${endSec.toString().padStart(2, '0')}`;
+                
+                bar.innerHTML = `<strong>Tronçon ${i}</strong><br><small style="font-size: 0.85rem;">${timing}</small>`;
+                bar.dataset.segment = i;
+                bar.onclick = function() {
+                    togglePause(this, numPauses);
+                };
+                container.appendChild(bar);
+            }
+        }
+
+        function togglePause(element, maxPauses) {
+            const segment = parseInt(element.dataset.segment);
+            
+            if (element.classList.contains('pause')) {
+                element.classList.remove('pause');
+                
+                // Recalculer le timing
+                const startSeconds = (segment - 1) * 90;
+                const endSeconds = segment * 90;
+                const startMin = Math.floor(startSeconds / 60);
+                const startSec = startSeconds % 60;
+                const endMin = Math.floor(endSeconds / 60);
+                const endSec = endSeconds % 60;
+                const timing = `${startMin}:${startSec.toString().padStart(2, '0')} à ${endMin}:${endSec.toString().padStart(2, '0')}`;
+                
+                element.innerHTML = `<strong>Tronçon ${segment}</strong><br><small style="font-size: 0.85rem;">${timing}</small>`;
+                appData.pauses = appData.pauses.filter(p => p !== segment);
+            } else {
+                const currentPauses = document.querySelectorAll('.pause-bar.pause').length;
+                if (currentPauses < maxPauses) {
+                    element.classList.add('pause');
+                    element.innerHTML = '<strong>PAUSE</strong>';
+                    appData.pauses.push(segment);
+                } else {
+                    alert(`Vous ne pouvez sélectionner que ${maxPauses} pause(s)`);
+                }
+            }
+        }
+
+        function validatePauses() {
+            const requiredPauses = appData.allure === 'jaune' ? 1 : 2;
+            
+            if (appData.pauses.length !== requiredPauses) {
+                alert(`Vous devez sélectionner exactement ${requiredPauses} pause(s)`);
+                return;
+            }
+            
+            // Trier les pauses pour faciliter le traitement
+            appData.pauses.sort((a, b) => a - b);
+
+            initObservation();
+            showScreen('screen-observation');
+        }
+
+        // Initialisation de l'observation
+        function initObservation() {
+            appData.plotsCible = Math.round(appData.vma + appData.allureValue);
+            const numSegments = appData.badge / 1.5;
+            
+            appData.segments = [];
+            for (let i = 1; i <= numSegments; i++) {
+                appData.segments.push({
+                    number: i,
+                    isPause: appData.pauses.includes(i),
+                    plots: 0,
+                    penalties: 0
+                });
+            }
+            
+            appData.currentSegment = 0;
+            
+            // Afficher les infos
+            updateHeaderInfo();
+            
+            // Déterminer le nom et la couleur de l'allure
+            let allureName = '';
+            let allureColor = '';
+            switch(appData.allure) {
+                case 'verte':
+                    allureName = 'VERTE';
+                    allureColor = '#2EC4B6';
+                    break;
+                case 'jaune':
+                    allureName = 'JAUNE';
+                    allureColor = '#F7B801';
+                    break;
+                case 'orange':
+                    allureName = 'ORANGE';
+                    allureColor = '#FF9F1C';
+                    break;
+            }
+            
+            document.getElementById('plots-cible').innerHTML = 
+                `<span style="color: ${allureColor}; font-weight: 700;">Allure ${allureName}</span><br>` +
+                `GROS PLOTS CIBLE : <span style="color: var(--accent); font-weight: 700; font-size: 1.5rem;">${appData.plotsCible}</span>`;
+            
+            updateSegmentDisplay();
+        }
+
+        function updateHeaderInfo() {
+            const header = document.getElementById('header-info');
+            header.innerHTML = `<strong>${appData.coureur}</strong> | VMA: ${appData.vma} km/h`;
+            header.style.display = 'block';
+        }
+
+        function updateSegmentDisplay() {
+            const segment = appData.segments[appData.currentSegment];
+            const totalSegments = appData.segments.length;
+            
+            document.getElementById('segment-title').textContent = `Tronçon ${appData.currentSegment + 1}/${totalSegments}`;
+            
+            if (segment.isPause) {
+                document.getElementById('pause-section').style.display = 'block';
+                document.getElementById('counter-section').style.display = 'none';
+            } else {
+                document.getElementById('pause-section').style.display = 'none';
+                document.getElementById('counter-section').style.display = 'block';
+                document.getElementById('plots-count').textContent = segment.plots;
+                document.getElementById('penalties-count').textContent = segment.penalties;
+            }
+        }
+
+        // Chronomètre
+        function startChrono() {
+            document.getElementById('start-btn').style.display = 'none';
+            document.getElementById('chrono-display').style.display = 'block';
+            
+            appData.chronoStartTime = Date.now();
+            
+            // Mise à jour du chrono
+            appData.chronoInterval = setInterval(() => {
+                const elapsed = Date.now() - appData.chronoStartTime;
+                const minutes = Math.floor(elapsed / 60000);
+                const seconds = Math.floor((elapsed % 60000) / 1000);
+                document.getElementById('chrono-display').textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }, 100);
+            
+            // Changement de segment toutes les 1min30
+            appData.segmentInterval = setInterval(() => {
+                nextSegment();
+            }, 90000);
+        }
+
+        function nextSegment() {
+            appData.currentSegment++;
+            
+            if (appData.currentSegment >= appData.segments.length) {
+                // Fin de la course
+                endCourseLongue();
+            } else {
+                updateSegmentDisplay();
+            }
+        }
+
+        function modifyCounter(type, delta) {
+            const segment = appData.segments[appData.currentSegment];
+            
+            if (type === 'plots') {
+                segment.plots = Math.max(0, segment.plots + delta);
+                document.getElementById('plots-count').textContent = segment.plots;
+            } else if (type === 'penalties') {
+                segment.penalties = Math.max(0, segment.penalties + delta);
+                document.getElementById('penalties-count').textContent = segment.penalties;
+            }
+        }
+
+        function endCourseLongue() {
+            clearInterval(appData.chronoInterval);
+            clearInterval(appData.segmentInterval);
+            
+            calculateBilan();
+            showScreen('screen-bilan');
+        }
+
+        // Bilan intermédiaire
+        function calculateBilan() {
+            let sortiesRoute = 0;
+            let totalPenalties = 0;
+            
+            appData.segments.forEach(segment => {
+                if (!segment.isPause) {
+                    const manque = Math.max(0, appData.plotsCible - segment.plots);
+                    sortiesRoute += manque;
+                    totalPenalties += segment.penalties;
+                }
+            });
+            
+            appData.scoreProvisoire = sortiesRoute + totalPenalties;
+            
+            document.getElementById('sorties-route').textContent = sortiesRoute;
+            document.getElementById('bilan-penalties').textContent = totalPenalties;
+            document.getElementById('score-provisoire').textContent = appData.scoreProvisoire;
+            
+            drawGraphLongue('graph-longue');
+        }
+
+        function drawGraphLongue(canvasId) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            
+            const labels = [];
+            const data = [];
+            const cible = [];
+            
+            appData.segments.forEach((segment, index) => {
+                if (!segment.isPause) {
+                    labels.push(`T${index + 1}`);
+                    data.push(segment.plots);
+                    cible.push(appData.plotsCible);
+                }
+            });
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Plots réalisés',
+                            data: data,
+                            borderColor: '#FF6B35',
+                            backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'Plots cibles',
+                            data: cible,
+                            borderColor: '#F7B801',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            pointRadius: 0,
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: { color: '#0F0F0F', font: { size: 14, weight: 'bold' } }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Allure de course',
+                            color: '#0F0F0F',
+                            font: { size: 18, weight: 'bold' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Vitesse (plots)', color: '#0F0F0F', font: { weight: 'bold' } },
+                            ticks: { color: '#0F0F0F' },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                        },
+                        x: {
+                            title: { display: true, text: 'Tronçons', color: '#0F0F0F', font: { weight: 'bold' } },
+                            ticks: { color: '#0F0F0F' },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Course intermittente
+        function goToIntermittent() {
+            appData.petitsPlotsCible = Math.round(appData.vma);
+            
+            document.getElementById('petits-plots-cible').textContent = appData.petitsPlotsCible;
+            document.getElementById('rattrapages-needed').textContent = appData.scoreProvisoire;
+            
+            showScreen('screen-objectif');
+        }
+
+        function startIntermittent() {
+            // Initialisation - seulement 4 obligatoires au départ
+            appData.intermittentData = [];
+            appData.currentIntermittent = 0;
+            
+            // Créer 4 obligatoires
+            for (let i = 0; i < 4; i++) {
+                appData.intermittentData.push({
+                    isObligatoire: true,
+                    petitsPlots: 0,
+                    penalties: 0,
+                    isRunning: true
+                });
+            }
+            
+            // Afficher les infos
+            const headerInter = document.getElementById('header-info-inter');
+            headerInter.innerHTML = `<strong>${appData.coureur}</strong> | VMA: ${appData.vma} km/h`;
+            headerInter.style.display = 'block';
+            
+            document.getElementById('petits-plots-cible-display').innerHTML = 
+                `<span style="color: #E71D36; font-weight: 700;">Allure ROUGE</span><br>` +
+                `Petits plots cible : <span style="color: var(--accent); font-weight: 700; font-size: 1.5rem;">${appData.petitsPlotsCible}</span>`;
+            
+            updateIntermittentDisplay();
+            showScreen('screen-intermittent');
+        }
+
+        function updateIntermittentDisplay() {
+            const current = appData.intermittentData[appData.currentIntermittent];
+            const isObligatoire = current.isObligatoire;
+            
+            if (isObligatoire) {
+                const obligatoireNum = appData.intermittentData.slice(0, appData.currentIntermittent + 1).filter(x => x.isObligatoire).length;
+                document.getElementById('intermittent-title').textContent = 
+                    `Obligatoire ${obligatoireNum}/4`;
+                document.getElementById('penalties-inter-section').style.display = 'block';
+            } else {
+                const rattrapageNum = appData.intermittentData.slice(0, appData.currentIntermittent + 1).filter(x => !x.isObligatoire).length;
+                document.getElementById('intermittent-title').textContent = 
+                    `Rattrapage n°${rattrapageNum}`;
+                document.getElementById('penalties-inter-section').style.display = 'none';
+            }
+            
+            document.getElementById('petits-plots-count').textContent = current.petitsPlots;
+            if (current.penalties !== undefined && current.penalties !== null) {
+                document.getElementById('penalties-inter-count').textContent = current.penalties;
+            }
+        }
+
+        function startChronoIntermittent() {
+            document.getElementById('start-inter-btn').style.display = 'none';
+            document.getElementById('chrono-intermittent').style.display = 'block';
+            
+            appData.isIntermittentRunning = true;
+            appData.intermittentStartTime = Date.now();
+            
+            // Mise à jour du chrono en minutes:secondes
+            appData.intermittentInterval = setInterval(() => {
+                const elapsed = Date.now() - appData.intermittentStartTime;
+                const minutes = Math.floor(elapsed / 60000);
+                const seconds = Math.floor((elapsed % 60000) / 1000);
+                document.getElementById('chrono-intermittent').textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }, 100);
+            
+            // Premier segment (course)
+            showIntermittentPhase(true);
+            
+            // Alternance course/pause toutes les 30s
+            let isRunning = true;
+            appData.intermittentSegmentInterval = setInterval(() => {
+                isRunning = !isRunning;
+                
+                if (!isRunning) {
+                    // Passage à la pause
+                    showIntermittentPhase(false);
+                } else {
+                    // Passage à la course suivante
+                    appData.currentIntermittent++;
+                    
+                    // Vérifier si on a fini les obligatoires pour afficher le bouton
+                    if (appData.currentIntermittent >= 4) {
+                        document.getElementById('finish-inter-btn').style.display = 'block';
+                    }
+                    
+                    updateIntermittentDisplay();
+                    showIntermittentPhase(true);
+                }
+            }, 30000);
+        }
+
+        function showIntermittentPhase(isRunning) {
+            if (isRunning) {
+                document.getElementById('pause-inter-section').style.display = 'none';
+                document.getElementById('counter-inter-section').style.display = 'block';
+            } else {
+                document.getElementById('pause-inter-section').style.display = 'block';
+                document.getElementById('counter-inter-section').style.display = 'none';
+                
+                // Si on vient de finir une phase de course après le 4ème obligatoire,
+                // on ajoute un nouveau rattrapage pour continuer
+                const numObligatoires = appData.intermittentData.filter(x => x.isObligatoire).length;
+                if (numObligatoires === 4 && appData.currentIntermittent >= 3) {
+                    // Ajouter un nouveau rattrapage
+                    appData.intermittentData.push({
+                        isObligatoire: false,
+                        petitsPlots: 0,
+                        penalties: null,
+                        isRunning: true
+                    });
+                }
+            }
+        }
+
+        function modifyCounterInter(type, delta) {
+            const current = appData.intermittentData[appData.currentIntermittent];
+            
+            if (type === 'petitsPlots') {
+                current.petitsPlots = Math.max(0, current.petitsPlots + delta);
+                document.getElementById('petits-plots-count').textContent = current.petitsPlots;
+            } else if (type === 'penalties' && current.penalties !== null) {
+                current.penalties = Math.max(0, current.penalties + delta);
+                document.getElementById('penalties-inter-count').textContent = current.penalties;
+            }
+        }
+
+        function finishIntermittent() {
+            clearInterval(appData.intermittentInterval);
+            clearInterval(appData.intermittentSegmentInterval);
+            appData.isIntermittentRunning = false;
+            
+            calculateFinalResults();
+            showScreen('screen-results');
+        }
+
+        // Résultats finaux
+        function calculateFinalResults() {
+            // Infos coureur
+            document.getElementById('result-coureur').textContent = appData.coureur;
+            document.getElementById('result-vma').textContent = appData.vma;
+            document.getElementById('result-observateur').textContent = appData.observateur;
+            document.getElementById('result-badge').textContent = `Badge ${appData.badge} min`;
+            
+            // Distance totale
+            let totalPlots = 0;
+            let nombreTronconsCourseLongue = 0;
+            appData.segments.forEach(s => {
+                if (!s.isPause) {
+                    totalPlots += s.plots;
+                    nombreTronconsCourseLongue++;
+                }
+            });
+            
+            let totalPetitsPlots = 0;
+            let nombreTronconsInterRealises = 0;
+            
+            // Pour la course intermittente, on compte :
+            // - Les 4 obligatoires (toujours comptés même s'ils ont 0 plots)
+            // - Les rattrapages qui ont été réellement effectués (au moins 1 plot compté)
+            let nombreObligatoiresComptes = 0;
+            
+            appData.intermittentData.forEach((item, index) => {
+                if (item.isObligatoire) {
+                    // C'est un obligatoire, on le compte toujours
+                    totalPetitsPlots += item.petitsPlots;
+                    nombreTronconsInterRealises++;
+                    nombreObligatoiresComptes++;
+                } else {
+                    // C'est un rattrapage, on ne le compte que s'il a été joué (> 0 plots)
+                    if (item.petitsPlots > 0) {
+                        totalPetitsPlots += item.petitsPlots;
+                        nombreTronconsInterRealises++;
+                    }
+                }
+            });
+            
+            const distanceTotale = Math.round(totalPlots * 25 + totalPetitsPlots * (25/3));
+            document.getElementById('distance-totale').textContent = distanceTotale;
+            
+            // Calcul vitesse moyenne course longue
+            const vitesseMoyennePlotsLongue = nombreTronconsCourseLongue > 0 ? (totalPlots / nombreTronconsCourseLongue) : 0;
+            const vitesseMoyenneLongue = vitesseMoyennePlotsLongue;
+            
+            // Calcul vitesse moyenne course intermittente
+            const vitesseMoyenneInter = nombreTronconsInterRealises > 0 ? (totalPetitsPlots / nombreTronconsInterRealises) : 0;
+            
+            // Affichage des vitesses moyennes
+            document.getElementById('vitesse-longue').textContent = vitesseMoyenneLongue.toFixed(1);
+            document.getElementById('vitesse-inter').textContent = vitesseMoyenneInter.toFixed(1);
+            
+            
+            // Score final
+            let sortiesRouteInter = 0;
+            let penaltiesInter = 0;
+            let rattrapagesValides = 0;
+            
+            appData.intermittentData.forEach((item, index) => {
+                if (index < 4) {
+                    // Obligatoires
+                    const manque = Math.max(0, appData.petitsPlotsCible - item.petitsPlots);
+                    sortiesRouteInter += manque;
+                    penaltiesInter += item.penalties;
+                } else {
+                    // Rattrapages
+                    if (item.petitsPlots >= appData.petitsPlotsCible) {
+                        rattrapagesValides++;
+                    }
+                }
+            });
+            
+            const scoreFinal = appData.scoreProvisoire + sortiesRouteInter + penaltiesInter - rattrapagesValides;
+            document.getElementById('score-final').textContent = scoreFinal;
+            
+            // Détail du calcul
+            const detailHTML = `
+                <h3 style="font-family: 'Bebas Neue', cursive; font-size: 1.5rem; color: var(--accent); margin-bottom: 15px;">Détail du calcul</h3>
+                <p><strong>Score provisoire (course longue):</strong> ${appData.scoreProvisoire}</p>
+                <p><strong>+ Sorties de route (30"/30"):</strong> ${sortiesRouteInter}</p>
+                <p><strong>+ Pénalités (30"/30" obligatoires):</strong> ${penaltiesInter}</p>
+                <p><strong>- Rattrapages validés:</strong> ${rattrapagesValides}</p>
+                <p style="font-size: 1.3rem; margin-top: 15px; color: var(--primary);"><strong>= Score final: ${scoreFinal}</strong></p>
+            `;
+            document.getElementById('detail-calcul').innerHTML = detailHTML;
+            
+            // Messages
+            const messagesContainer = document.getElementById('messages-container');
+            messagesContainer.innerHTML = '';
+            
+            if (scoreFinal <= 1) {
+                const msgSuccess = document.createElement('div');
+                msgSuccess.className = 'message-box success';
+                msgSuccess.innerHTML = '🎉 <strong>BRAVO !</strong>';
+                messagesContainer.appendChild(msgSuccess);
+                
+                // Vérifier progression VMA
+                checkVMAProgression(messagesContainer);
+            } else {
+                const msgWarning = document.createElement('div');
+                msgWarning.className = 'message-box warning';
+                msgWarning.textContent = "C'est pas grave, retente ta chance !";
+                messagesContainer.appendChild(msgWarning);
+            }
+            
+            // Graphiques
+            drawGraphLongue('graph-final-longue');
+            drawGraphIntermittent();
+        }
+
+        function checkVMAProgression(container) {
+            let totalExcess = 0;
+            let totalSegments = 0;
+            
+            // Course longue
+            appData.segments.forEach(s => {
+                if (!s.isPause) {
+                    totalExcess += Math.max(0, s.plots - appData.plotsCible);
+                    totalSegments++;
+                }
+            });
+            
+            // Course intermittente
+            appData.intermittentData.forEach(i => {
+                totalExcess += Math.max(0, i.petitsPlots - appData.petitsPlotsCible);
+                totalSegments++;
+            });
+            
+            const moyenne = totalExcess / totalSegments;
+            
+            if (moyenne >= 0.7) {
+                const msgVMA = document.createElement('div');
+                msgVMA.className = 'message-box success';
+                msgVMA.innerHTML = `🌟 <strong>Félicitations !</strong><br>Votre VMA évolue<br>Nouvelle VMA = ${appData.vma + 1} km/h`;
+                container.appendChild(msgVMA);
+            }
+        }
+
+        function drawGraphIntermittent() {
+            const ctx = document.getElementById('graph-final-inter').getContext('2d');
+            
+            const labels = [];
+            const data = [];
+            const cible = [];
+            
+            appData.intermittentData.forEach((item, index) => {
+                if (index < 4) {
+                    labels.push(`Obl ${index + 1}`);
+                } else {
+                    labels.push(`Rat ${index - 3}`);
+                }
+                data.push(item.petitsPlots);
+                cible.push(appData.petitsPlotsCible);
+            });
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Petits plots réalisés',
+                            data: data,
+                            backgroundColor: 'rgba(46, 196, 182, 0.7)',
+                            borderColor: '#2EC4B6',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Petits plots cibles',
+                            data: cible,
+                            type: 'line',
+                            borderColor: '#F7B801',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            pointRadius: 0,
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: { color: '#0F0F0F', font: { size: 14, weight: 'bold' } }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Performance 30"/30"',
+                            color: '#0F0F0F',
+                            font: { size: 18, weight: 'bold' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Petits plots', color: '#0F0F0F', font: { weight: 'bold' } },
+                            ticks: { color: '#0F0F0F' },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#0F0F0F' },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Export PDF
+        async function exportPDF() {
+            try {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                
+                // Page 1 : Titre et informations
+                pdf.setFontSize(24);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('Demi fond EPS', 105, 20, { align: 'center' });
+                
+                pdf.setFontSize(18);
+                pdf.text('Résultats', 105, 30, { align: 'center' });
+                
+                // Informations coureur
+                pdf.setFontSize(12);
+                pdf.setFont(undefined, 'normal');
+                let y = 45;
+                
+                // Encadré des infos
+                pdf.setDrawColor(255, 107, 53);
+                pdf.setLineWidth(0.5);
+                pdf.rect(20, y - 5, 170, 35);
+                
+                y += 5;
+                pdf.text(`Coureur: ${appData.coureur}`, 25, y);
+                y += 7;
+                pdf.text(`VMA: ${appData.vma} km/h`, 25, y);
+                y += 7;
+                pdf.text(`Observateur: ${appData.observateur}`, 25, y);
+                y += 7;
+                pdf.text(`Badge tenté: Badge ${appData.badge} min`, 25, y);
+                y += 7;
+                
+                // Déterminer le nom de l'allure
+                let allureName = '';
+                switch(appData.allure) {
+                    case 'verte': allureName = 'VERTE'; break;
+                    case 'jaune': allureName = 'JAUNE'; break;
+                    case 'orange': allureName = 'ORANGE'; break;
+                }
+                pdf.text(`Allure: ${allureName}`, 25, y);
+                
+                y += 15;
+                
+                // Score et distance
+                pdf.setFontSize(14);
+                pdf.setFont(undefined, 'bold');
+                const scoreFinal = parseInt(document.getElementById('score-final').textContent);
+                const distanceTotale = document.getElementById('distance-totale').textContent;
+                const vitesseLongue = document.getElementById('vitesse-longue').textContent;
+                const vitesseInter = document.getElementById('vitesse-inter').textContent;
+                
+                // Résultats principaux
+                pdf.setFillColor(255, 107, 53);
+                pdf.rect(20, y, 170, 40, 'F');
+                pdf.setTextColor(255, 255, 255);
+                y += 8;
+                pdf.text(`Score final: ${scoreFinal}`, 25, y);
+                y += 10;
+                pdf.text(`Distance totale: ${distanceTotale} m`, 25, y);
+                y += 10;
+                pdf.text(`Vitesse moy. course longue: ${vitesseLongue} km/h`, 25, y);
+                y += 10;
+                pdf.text(`Vitesse moy. course intermittente: ${vitesseInter} km/h`, 25, y);
+                
+                pdf.setTextColor(0, 0, 0);
+                y += 15;
+                
+                // Détail du calcul
+                pdf.setFontSize(11);
+                pdf.setFont(undefined, 'normal');
+                const detailText = document.getElementById('detail-calcul').innerText;
+                const lines = pdf.splitTextToSize(detailText, 170);
+                pdf.text(lines, 20, y);
+                y += lines.length * 5;
+                
+                // Page 2 : Graphiques
+                pdf.addPage();
+                pdf.setFontSize(16);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('Graphiques de performance', 105, 15, { align: 'center' });
+                
+                // Graphique course longue
+                pdf.setFontSize(12);
+                pdf.text('Course Longue', 20, 30);
+                
+                const canvas1 = document.getElementById('graph-final-longue');
+                const imgData1 = canvas1.toDataURL('image/png', 1.0);
+                pdf.addImage(imgData1, 'PNG', 20, 35, 170, 85);
+                
+                // Graphique course intermittente
+                pdf.text('Course Intermittente 30"/30"', 20, 135);
+                
+                const canvas2 = document.getElementById('graph-final-inter');
+                const imgData2 = canvas2.toDataURL('image/png', 1.0);
+                pdf.addImage(imgData2, 'PNG', 20, 140, 170, 85);
+                
+                // Page 3 : Données détaillées
+                pdf.addPage();
+                pdf.setFontSize(14);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('Données détaillées', 105, 15, { align: 'center' });
+                
+                // Course longue
+                pdf.setFontSize(12);
+                y = 30;
+                pdf.text('Course Longue', 20, y);
+                y += 7;
+                
+                pdf.setFontSize(10);
+                pdf.setFont(undefined, 'normal');
+                appData.segments.forEach((s, i) => {
+                    if (!s.isPause) {
+                        pdf.text(`Tronçon ${i + 1}: ${s.plots} plots (cible: ${appData.plotsCible}) - Pénalités: ${s.penalties}`, 25, y);
+                        y += 5;
+                    } else {
+                        pdf.text(`Tronçon ${i + 1}: PAUSE MARCHE`, 25, y);
+                        y += 5;
+                    }
+                });
+                
+                y += 10;
+                pdf.setFontSize(12);
+                pdf.setFont(undefined, 'bold');
+                pdf.text('Course Intermittente 30"/30"', 20, y);
+                y += 7;
+                
+                pdf.setFontSize(10);
+                pdf.setFont(undefined, 'normal');
+                appData.intermittentData.forEach((item, i) => {
+                    if (i <= appData.currentIntermittent) {
+                        const numObligatoire = appData.intermittentData.slice(0, i + 1).filter(x => x.isObligatoire).length;
+                        const numRattrapage = appData.intermittentData.slice(0, i + 1).filter(x => !x.isObligatoire).length;
+                        const type = item.isObligatoire ? `Obligatoire ${numObligatoire}` : `Rattrapage ${numRattrapage}`;
+                        const penaltiesText = (item.penalties !== undefined && item.penalties !== null) ? ` - Pénalités: ${item.penalties}` : '';
+                        pdf.text(`${type}: ${item.petitsPlots} petits plots (cible: ${appData.petitsPlotsCible})${penaltiesText}`, 25, y);
+                        y += 5;
+                        
+                        if (y > 270) {
+                            pdf.addPage();
+                            y = 20;
+                        }
+                    }
+                });
+                
+                // Sauvegarder
+                pdf.save(`demi-fond-${appData.coureur}.pdf`);
+                
+                alert('PDF exporté avec succès !');
+            } catch (error) {
+                console.error('Erreur lors de l\'export PDF:', error);
+                alert('Erreur lors de l\'export PDF. Veuillez réessayer.');
+            }
+        }
+
+        // Export Excel
+        function exportXLS() {
+            const wb = XLSX.utils.book_new();
+            
+            // Récupérer les vitesses moyennes
+            const vitesseLongue = document.getElementById('vitesse-longue').textContent;
+            const vitesseInter = document.getElementById('vitesse-inter').textContent;
+            
+            // Feuille 1: Informations générales
+            const infoData = [
+                ['Demi fond EPS - Résultats'],
+                [],
+                ['Coureur', appData.coureur],
+                ['VMA', appData.vma + ' km/h'],
+                ['Observateur', appData.observateur],
+                ['Badge tenté', `Badge ${appData.badge} min`],
+                ['Allure', appData.allure],
+                [],
+                ['Distance totale', document.getElementById('distance-totale').textContent + ' m'],
+                ['Score final', document.getElementById('score-final').textContent],
+                ['Vitesse moyenne course longue', vitesseLongue + ' km/h'],
+                ['Vitesse moyenne course intermittente', vitesseInter + ' km/h'],
+            ];
+            const ws1 = XLSX.utils.aoa_to_sheet(infoData);
+            XLSX.utils.book_append_sheet(wb, ws1, 'Informations');
+            
+            // Feuille 2: Course longue
+            const courseLongueData = [['Tronçon', 'Type', 'Plots réalisés', 'Plots cibles', 'Pénalités']];
+            appData.segments.forEach((s, i) => {
+                courseLongueData.push([
+                    `Tronçon ${i + 1}`,
+                    s.isPause ? 'PAUSE' : 'Course',
+                    s.isPause ? '-' : s.plots,
+                    s.isPause ? '-' : appData.plotsCible,
+                    s.isPause ? '-' : s.penalties
+                ]);
+            });
+            const ws2 = XLSX.utils.aoa_to_sheet(courseLongueData);
+            XLSX.utils.book_append_sheet(wb, ws2, 'Course Longue');
+            
+            // Feuille 3: Course intermittente
+            const interData = [['N°', 'Type', 'Petits plots réalisés', 'Petits plots cibles', 'Pénalités']];
+            appData.intermittentData.forEach((item, i) => {
+                const numObligatoire = appData.intermittentData.slice(0, i + 1).filter(x => x.isObligatoire).length;
+                const numRattrapage = appData.intermittentData.slice(0, i + 1).filter(x => !x.isObligatoire).length;
+                const type = item.isObligatoire ? `Obligatoire ${numObligatoire}` : `Rattrapage ${numRattrapage}`;
+                interData.push([
+                    i + 1,
+                    type,
+                    item.petitsPlots,
+                    appData.petitsPlotsCible,
+                    (item.penalties !== undefined && item.penalties !== null) ? item.penalties : '-'
+                ]);
+            });
+            const ws3 = XLSX.utils.aoa_to_sheet(interData);
+            XLSX.utils.book_append_sheet(wb, ws3, 'Course Intermittente');
+            
+            XLSX.writeFile(wb, `demi-fond-${appData.coureur}.xlsx`);
+        }
+
+        // Prévenir la fermeture accidentelle pendant une course
+        window.addEventListener('beforeunload', (e) => {
+            if (appData.chronoInterval || appData.intermittentInterval) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+    </script>
+</body>
+</html>
